@@ -1,3 +1,14 @@
+---
+title: US Tax And Legal RAG
+emoji: 📚
+colorFrom: purple
+colorTo: indigo
+sdk: docker
+app_port: 7860
+---
+
+
+
 # Minimal Hybrid RAG System (US Tax & Legal)
 
 A modular, high-performance Retrieval-Augmented Generation (RAG) system built with **FastAPI**, **FAISS**, **BM25**, and **Mistral AI**. Designed specifically for tax and legal document corpora.
