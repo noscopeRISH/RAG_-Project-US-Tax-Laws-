@@ -6,6 +6,10 @@ from dotenv import load_dotenv
 # Load environment variables
 load_dotenv()
 
+# Debug environment variables (keys only for security)
+import os
+print("[DEBUG] Available Environment Keys:", sorted(list(os.environ.keys())), flush=True)
+
 
 from langchain_mistralai import ChatMistralAI
 
