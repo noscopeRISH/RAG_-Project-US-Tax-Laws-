@@ -35,3 +35,5 @@ Tax_guide_small_business.pdf filter=lfs diff=lfs merge=lfs -text
 Tax_Guide.pdf filter=lfs diff=lfs merge=lfs -text
 taxable[[:space:]]and[[:space:]]nontaxable[[:space:]]income.pdf filter=lfs diff=lfs merge=lfs -text
 taxinformation_for_homeowner.pdf filter=lfs diff=lfs merge=lfs -text
+data/faiss_index/index.faiss filter=lfs diff=lfs merge=lfs -text
+data/faiss_index/index.pkl filter=lfs diff=lfs merge=lfs -text
