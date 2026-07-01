@@ -113,7 +113,7 @@ Open your browser and navigate to:
 
 ---
 
-### Option 1: Hugging Face Spaces (Recommended & Free)
+##Hugging Face Spaces
 Hugging Face Spaces is the ideal hosting option for this system because it natively supports Docker and running Python packages like `torch` and `sentence-transformers` locally on a free CPU basic tier (16GB RAM).
 
 #### Step-by-Step Deployment:
@@ -138,30 +138,4 @@ Hugging Face Spaces is the ideal hosting option for this system because it nativ
 7. Hugging Face will automatically build and run the Docker container. Once running, your app is accessible at `https://huggingface.co/spaces/<your-username>/<your-space-name>`.
 
 ---
-
-### Option 2: Render (Free Web Service)
-Render is a cloud hosting provider that allows deploying Web Services directly from GitHub.
-
-#### Step-by-Step Deployment:
-1. Create an account on [Render](https://render.com/).
-2. Click **New +** -> **Web Service**.
-3. Connect your GitHub repository.
-4. Set the following configuration:
-   * **Runtime**: **Docker**
-   * **Instance Type**: **Free**
-5. Click **Advanced** and add the environment variable:
-   * Key: `MISTRAL_API_KEY` | Value: `<your-mistral-api-key>`
-6. Deploy the web service. Render will read the root `Dockerfile` and spin up the server.
-
----
-
-### Option 3: Vercel (Static Frontend Only + Remote Backend)
-Vercel is an exceptional platform for frontends, but deploying this Python RAG backend directly on Vercel Serverless is **not possible** because:
-1. The `sentence-transformers` package requires PyTorch, which is over 1GB uncompressed. This exceeds Vercel's strict **250MB size limit** for serverless functions.
-2. Building or loading a FAISS index statelessly on every serverless invocation causes severe timeouts and performance overhead.
-
-#### Deployment Architecture:
-1. Deploy the backend on **Hugging Face Spaces** (Option 1) or **Render** (Option 2).
-2. Configure the frontend (`src/api/templates/index.html`) to query the backend URL instead of relative `/query`.
-3. Deploy the frontend code to Vercel as a static site.
 
