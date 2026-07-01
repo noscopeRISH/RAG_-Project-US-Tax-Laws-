@@ -32,11 +32,12 @@ class Config:
     @classmethod
     def get_llm(cls):
         """Initialize and return the LLM."""
-        if not cls.MISTRAL_API_KEY:
+        api_key = os.getenv("MISTRAL_API_KEY")
+        if not api_key:
             raise ValueError(
-                "MISTRAL_API_KEY not found. Add it to your .env file."
+                "MISTRAL_API_KEY not found. Add it to your Space Secrets or .env file."
             )
         return ChatMistralAI(
             model=cls.LLM_MODEL,
-            api_key=cls.MISTRAL_API_KEY,
+            api_key=api_key,
         )
