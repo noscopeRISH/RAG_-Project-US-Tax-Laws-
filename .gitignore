@@ -1,0 +1,29 @@
+# Virtual environment
+.venv/
+venv/
+ENV/
+env/
+
+# API keys and environment variables
+.env
+
+# Local RAG indexes (comitted to bypass cloud rebuilds)
+data/faiss_index/
+data/*.pkl
+data/corpus_hash.txt
+#data/index.lock
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+
+# IDE files
+.vscode/
+.idea/
+.DS_Store
+
+
+data/

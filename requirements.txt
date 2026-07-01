@@ -1,0 +1,17 @@
+langchain
+langchain-community
+langgraph
+faiss-cpu
+pydantic
+python-dotenv
+beautifulsoup4
+requests
+wikipedia 
+langchain-huggingface
+sentence-transformers
+langchain-groq
+pypdf
+langchain-mistralai
+rank-bm25
+fastapi
+uvicorn
