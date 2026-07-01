@@ -108,6 +108,16 @@ async def serve_ui():
     return HTMLResponse(content=template_path.read_text(encoding="utf-8"))
 
 
+@app.get("/debug-env")
+async def debug_env():
+    """Debug endpoint to list environment keys for troubleshooting."""
+    return {
+        "env_keys": sorted(list(os.environ.keys())),
+        "has_mistral_api_key": "MISTRAL_API_KEY" in os.environ,
+        "mistral_api_key_length": len(os.environ.get("MISTRAL_API_KEY", "")) if os.environ.get("MISTRAL_API_KEY") else 0
+    }
+
+
 @app.post("/query", response_model=QueryResponse)
 async def query_rag(payload: QueryRequest):
     """Executes hybrid retrieval, merges via RRF, calls Mistral AI, and validates citations."""
