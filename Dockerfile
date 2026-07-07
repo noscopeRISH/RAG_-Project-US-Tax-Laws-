@@ -36,9 +36,13 @@ ENV PORT=7860
 # Copy application source files
 COPY src/ /app/src/
 COPY api_main.py /app/
+COPY build_index.py /app/
 
 # Bake pre-built FAISS index, BM25 cache, and documents into the image
 COPY data/ /app/data/
+
+# Pre-build RAG indexes at build time to prevent runtime startup delay
+RUN python build_index.py
 
 # Expose port (HF Spaces defaults to 7860)
 EXPOSE 7860
