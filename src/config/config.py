@@ -39,5 +39,5 @@ class Config:
             )
         return ChatMistralAI(
             model=cls.LLM_MODEL,
-            api_key=api_key,
+            api_key=api_key.strip(),
         )
